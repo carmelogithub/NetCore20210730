@@ -1,0 +1,62 @@
+﻿@model IEnumerable<NetCoreMVCCrudPractica.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Nuevo alumno</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaMatricula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Creditos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NotaMedia)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaMatricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Creditos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotaMedia)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Modificar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Ver detalle</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
